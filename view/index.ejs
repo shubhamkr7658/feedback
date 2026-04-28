@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Form Container */
+        .feedback-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .feedback-card h2 {
+            margin-top: 0;
+            color: #333;
+            text-align: center;
+        }
+
+        .feedback-card p {
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #444;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box; /* Ensures padding doesn't affect width */
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, 
+        select:focus, 
+        textarea:focus {
+            outline: none;
+            border-color: #4A90E2;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Rating Stars Style (Radio Buttons) */
+        .rating-group {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0 20px;
+        }
+
+        .rating-option {
+            text-align: center;
+        }
+
+        .rating-option input {
+            cursor: pointer;
+        }
+
+        /* Submit Button */
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4A90E2;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #357ABD;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .feedback-card {
+                margin: 15px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="feedback-card">
+        <h2>We Value Your Feedback</h2>
+        <p>Please let us know how we're doing so we can improve our service.</p>
+
+        <form action="/feedback" method="POST">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label>Overall Experience</label>
+                <div class="rating-group">
+                    <div class="rating-option">
+                        <input type="radio" id="star1" name="rating" value="1" required>
+                        <label for="star1">1</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2">2</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3">3</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4">4</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="star5" name="rating" value="5">
+                        <label for="star5">5</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Your Comments</label>
+                <textarea id="comments" name="comments" placeholder="Tell us more about your experience..."></textarea>
+            </div>
+
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+
+</body>
+</html>
